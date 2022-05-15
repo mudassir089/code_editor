@@ -6,7 +6,9 @@ const { Server } = require("socket.io");
 const ACTIONS = require("./Actions");
 
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {
+  cors: "http://localhost:5000",
+});
 
 app.use(express.static("./view/build"));
 app.use((req, res, next) => {
